@@ -1,0 +1,38 @@
+<!-- updatecontact.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Contact</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <!-- Link to external stylesheet -->
+</head>
+<body>
+  <nav class="navbar">
+    <h1>My Contacts</h1>
+    <div class="links">
+      <a href="/">Home</a>
+      <a class="new-item-link" href="/addcontact">New Contact</a>
+    </div>
+  </nav>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Contact</h2>
+      <form action="/single-contact/<%= contact._id %>?_method=PUT" method="POST">
+        <label>Sender:</label>
+        <input type="text" value="<%= contact.sender %>" id="sender" name="sender" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required><%= contact.message %></textarea>
+
+        <label for="rating">Rating:</label>
+        <input type="numberic" id="rating" name="rating" required value="<%= contact.rating %>" />
+
+        <button type="submit">Update Contact</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
